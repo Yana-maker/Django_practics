@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+{% block content%}
+
+<div class="col-12-mb-4">
+  <a class="btn btn-outline-success" href="{% url 'store:create' %}">
+    ДОБАВИТЬ УЧЕНИКА</a>
+</div>
+{% for object in object_list %}
+  <div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+      <div class="card-body">
+        <p class="card-text">
+          {% if object.is_active %}
+          {{ object }}
+          {% else %}
+          {{ object }}
+          {% endif %}
+        </p>
+        <div class="d-flex-justify-content-between align-items-center">
+          <div class="btn-group">
+            <a href="{% url 'store:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">view</a>
+            <a href="{% url 'store:edit' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">edit</a>
+            <a href="{% url 'store:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'store/base.html '%}
+
+{% block content %}
+
+<div class="col-12">
+    <div class="card form-control">
+        <div class="card-body form-control">
+            <h3 class="card-title">Оставьте заявку</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+              <button type="submit" class="btn btn-outline-primary form-control m-2">ОТПРАВИТЬ ЗАЯВКУ</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

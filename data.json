@@ -1,0 +1,32 @@
+[
+  {
+    "model": "store.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "Петр",
+      "second_name": "Петров",
+      "avatar": "",
+      "is_active": true
+    }
+  },
+  {
+    "model": "store.student",
+    "pk": 2,
+    "fields": {
+      "first_name": "Николай",
+      "second_name": "Иванов",
+      "avatar": "",
+      "is_active": true
+    }
+  },
+  {
+    "model": "store.student",
+    "pk": 3,
+    "fields": {
+      "first_name": "Семен",
+      "second_name": "Николаев",
+      "avatar": "",
+      "is_active": false
+    }
+  }
+]
