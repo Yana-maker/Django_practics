@@ -1,30 +1,38 @@
 {% extends 'store/base.html' %}
 {% block content%}
 
-<div class="col-12-mb-4">
+<div class="col-12-mb-5">
   <a class="btn btn-outline-success" href="{% url 'store:create' %}">
     ДОБАВИТЬ УЧЕНИКА</a>
 </div>
 {% for object in object_list %}
-  <div class="col-md-4">
-    <div class="card mb-4 box-shadow">
-      <div class="card-body">
-        <p class="card-text">
-          {% if object.is_active %}
-          {{ object }}
-          {% else %}
-          {{ object }}
-          {% endif %}
-        </p>
-        <div class="d-flex-justify-content-between align-items-center">
-          <div class="btn-group">
-            <a href="{% url 'store:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">view</a>
-            <a href="{% url 'store:edit' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">edit</a>
-            <a href="{% url 'store:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">delete</a>
-          </div>
-        </div>
-      </div>
+
+<div class="col-6-mb-5">
+  <div class="card mb-5 box-shadow">
+    <img src="/media/{{ object.avatar }}" alt="Avatar" Width="300" Height="250">
+    <div class="container">
+      <h4><b>УЧЕНИК</b></h4>
+      <p>
+        {% if object.is_active %}
+        {{ object }}
+        {% else %}
+        {{ object }}
+        {% endif %}
+      </p>
     </div>
+    <div class="btn-group">
+      <a href="{% url 'store:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">view</a>
+      <a href="{% url 'store:edit' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">edit</a>
+      <a href="{% url 'store:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">delete</a>
+    </div>
+    {% if object.is_active %}
+    <a class="btn btn-warning" href="{% url 'store:toggle_activity' object.pk %}">Деактивировать</a>
+    {% else %}
+    <a class="btn btn-success" href="{% url 'store:toggle_activity' object.pk %}">Aктивировать</a>
+    {% endif %}
   </div>
+</div>
+
 {% endfor %}
 {% endblock %}
+

@@ -11,6 +11,7 @@ python = "^3.11"
 django = "^4.2.5"
 pillow = "^10.0.0"
 ipython = "^8.15.0"
+pytils = "^0.4.1"
 
 
 [build-system]

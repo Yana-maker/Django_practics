@@ -1,5 +1,6 @@
 from django.urls import path
-from store.views import StudentListView, StudentDetailView, ContactsCreateView, StudentCreateView, StudentUpdateView, StudentDeleteView
+from store.views import StudentListView, StudentDetailView, ContactsCreateView, StudentCreateView, StudentUpdateView, \
+    StudentDeleteView, toggle_activity
 from store.apps import StoreConfig
 
 app_name = StoreConfig.name
@@ -11,4 +12,5 @@ urlpatterns = [
     path('view/<int:pk>/', StudentDetailView.as_view(), name='view'),
     path('edit/<int:pk>/', StudentUpdateView.as_view(), name='edit'),
     path('delete/<int:pk>/', StudentDeleteView.as_view(), name='delete'),
+    path('activity/<int:pk>/', toggle_activity, name="toggle_activity")
 ]

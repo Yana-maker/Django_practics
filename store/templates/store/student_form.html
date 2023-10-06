@@ -1,27 +1,47 @@
 {% extends 'store/base.html '%}
 
 {% block content %}
-
 <div class="col-12">
-    <div class="row">
-        <div class="col=4">
+    <form method="post" enctype="multipart/form-data">
+        <div class="col-6">
             <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3>
+                            добавить ученика
+                        </h3>
+                    </div>
+                </div>
                 <div class="card-body">
-                    <form method="post">
-                      {% csrf_token %}
-                      {{ form.as_p }}
-                      <button type="submit" class="btn btn-outline-primary form-control m-2">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-outline-primary form-control m-2">
                         {% if object %}
                         Сохранить
                         {% else %}
                         Создать
                         {% endif %}
-                      </button>
-                    </form>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3>
+                            предмет ученика
+                        </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{ formset.management_form }}
+                    {% for form in formset.forms %}
+                        {{ form.as_p }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-
 {% endblock %}
